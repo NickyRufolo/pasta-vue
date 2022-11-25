@@ -5,12 +5,23 @@
             <h2>Scopri la <strong>pasta La Molisana:</strong> tipi di pasta da grano 100% italiano decorticato e
                 trafilata al bronzo</h2>
         </div>
+
+        <!-- Pasta -->
         <div class="pre-pasta">
             <i class="fa-regular fa-square"></i>
             <span class="pastatext">Pasta per <strong>forma</strong></span>
         </div>
         <div class="Pasta-card-Div-Flex">
-            <PastaCard v-for="(element, index) in arrayPasta" :key="index" :propsPasta="element"/>
+            <PastaCard v-for="(element, index) in arrayPasta" :key="index" :propsPasta="element" />
+        </div>
+
+        <!-- Confezione -->
+        <div class="pre-Confezione">
+            <i class="fa-regular fa-square"></i>
+            <span class="pastatext">Scegli la <strong>tua Confezione</strong></span>
+        </div>
+        <div class="Confezione-card-Div-Flex">
+            <ConfezioniComp v-for="(element, index) in arrayConfezione" :key="index" :propsConfezione="element" />
         </div>
     </div>
 </template>
@@ -18,11 +29,14 @@
 
 <script>
 import PastaCard from './PastaCard.vue'
+import ConfezioniComp from './ConfezioniComp'
+
 
 export default {
     name: 'MainComp',
     components: {
-        PastaCard
+        PastaCard,
+        ConfezioniComp
     },
     data() {
         return {
@@ -64,6 +78,40 @@ export default {
                     'tipo': 'Pastina'
                 },
 
+            ],
+            arrayConfezione: [
+                {
+                    'img': "https://www.lamolisana.it/wp-content/uploads/2022/04/pasta-classica.webp",
+                    'name': "Le classiche"
+                },
+                {
+                    'img': "https://www.lamolisana.it/wp-content/uploads/2021/06/32-mezzi-rigatoni-integrali.webp",
+                    'name': "Le integrali"
+                },
+                {
+                    'img': "https://www.lamolisana.it/wp-content/uploads/2022/04/pasta-speciale.webp",
+                    'name': "Le speciali"
+                },
+                {
+                    'img': "https://www.lamolisana.it/wp-content/uploads/2022/04/pasta-biologica.webp",
+                    'name': "Le biologiche"
+                },
+                {
+                    'img': "https://www.lamolisana.it/wp-content/uploads/2022/08/pasta-sfiziosa.webp",
+                    'name': "Le sfiziose"
+                },
+                {
+                    'img': "https://www.lamolisana.it/wp-content/uploads/2022/04/pasta-senza-glutine.webp",
+                    'name': "Gluten-free"
+                },
+                {
+                    'img': "https://www.lamolisana.it/wp-content/uploads/2022/04/le-semole.webp",
+                    'name': "Le semole"
+                },
+                {
+                    'img': "https://www.lamolisana.it/wp-content/uploads/2022/04/rossi.webp",
+                    'name': "I Rossi"
+                },
             ]
         }
     }
@@ -112,4 +160,19 @@ h2 {
     width: 80%;
     flex-wrap: wrap;
 }
+.pre-Confezione {
+    width: 80%;
+    margin: 30px auto;
+    font-size: 1.8rem;
+}
+.Confezione-card-Div-Flex {
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+}
+.pre-Confezione > .fa-square {
+    color: rgb(255, 0, 0);
+    padding: 5px 5px;
+}
+
 </style>
